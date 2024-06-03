@@ -1,0 +1,71 @@
+@import '../colors.scss';
+
+.btn {
+  display: flex;
+  font-size: 16px;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  padding: 8px 24px;
+  border-radius: 6px;
+}
+
+.btn:hover {
+  box-shadow: 0 12px 17px -3px #a6a6a6;
+}
+
+.btn-info {
+  border: none;
+  background-color: $info-color
+}
+
+.btn-info:hover {
+  background-color: #F5AB2B
+}
+
+.btn-info-secondary {
+  border: 1px solid;
+  background-color: white;
+  color: #C75100;
+}
+
+.btn-error {
+  border: none;
+  background-color: $error-color;
+  color: #ffffff;
+}
+
+.btn-error-secondary {
+  border: 1px solid;
+  background-color: white;
+  color: #CC3123;
+}
+
+.btn-error:hover {}
+
+.btn-warning {
+  border: none;
+  background-color: $warning-color;
+  color: #ffffff;
+}
+
+.btn-warning-secondary {
+  border: 1px solid;
+  background-color: white;
+  color: #C75100;
+}
+
+.btn-warning:hover {}
+
+.btn-success {
+  border: none;
+  background-color: $success-color;
+  color: #ffffff;
+}
+
+.btn-success-secondary {
+  border: 1px solid;
+  background-color: white;
+  color: #008700;
+}
+
+.btn-success:hover {}
