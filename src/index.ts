@@ -1,5 +1,6 @@
 // entry point for all lit components in the library
 // remember to include react wrappers
+// export has to be explicitly named, no * exports
 export { LitButton } from './Button/Button';
 export { LitReactButton } from './Button/Button.wrapper';
 export { LitAlert } from './Alert/Alert';
