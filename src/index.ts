@@ -1,11 +1,10 @@
 // entry point for all lit components in the library
-// remember to include react wrappers
 // export has to be explicitly named, no * exports
 export { LitButton } from './Button/Button';
-export { LitReactButton } from './Button/Button.wrapper';
 export { LitAlert } from './Alert/Alert';
-export { LitReactAlert } from './Alert/Alert.wrapper';
 export { LitCard } from './Card/Card';
-export { LitReactCard } from './Card/Card.wrapper';
 export { LitList } from './Lists/Lists';
-export { LitReactList } from './Lists/Lists.wrapper';
+
+// working package version ml-lit-components@0.0.8
+// html,vue, angular usable v0.0.19 = built with index.ts
+// react usable v0.0.20 = built with react/index.ts

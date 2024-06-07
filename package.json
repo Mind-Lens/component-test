@@ -1,15 +1,22 @@
 {
   "name": "ml-lit-components",
   "private": false,
-  "version": "0.0.8",
+  "version": "0.0.21",
   "type": "module",
   "main": "dist/index.js",
-  "files": [
-    "dist"
-  ],
+  "exports": {
+    ".": {
+      "require": "./dist/index.js"
+    },
+    "./react": {
+      "require": "./dist/react/index.js"
+    }
+  },
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build:lit": "tsc && vite build --mode lit",
+    "build:react": "tsc && vite build --mode react",
+    "build:all": "tsc && vite build --mode react && vite build --mode lit",
     "compile": "tsc",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
