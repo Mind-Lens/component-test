@@ -3,6 +3,7 @@
 export { LitButton } from './Button/Button';
 export { LitCard } from './Card/Card';
 export { LitIcon } from './Icon/Icon';
+export { LitBanner } from './Banner/Banner';
 
 // working package version ml-lit-components@0.0.8
 // html,vue, angular usable v0.0.19 = built with index.ts
