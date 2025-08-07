@@ -1,0 +1,9 @@
+.notification {
+  margin: 12px auto 0;
+  box-shadow: var(--box-shadow);
+  z-index: var(--z-index-notification);
+
+  &:first-child {
+    margin-top: 32px;
+  }
+}
