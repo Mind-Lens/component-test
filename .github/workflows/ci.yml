@@ -98,3 +98,5 @@ jobs:
         run: npx wait-on http://localhost:6006
       - name: Run pa11y-ci
         run: npx pa11y-ci http://localhost:6006
+        env:
+          PUPPETEER_ARGS: "--no-sandbox"
