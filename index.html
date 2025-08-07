@@ -1,38 +1,384 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Lit Components</title>
-      <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
-    rel="stylesheet">
-
-    <!-- import from src
-      <script type="module" src="./src/index.ts"></script>
-    -->
-
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+      rel="stylesheet"
+    />
     <!-- import from vite build output -->
     <script type="module" src="./dist/index.js"></script>
-    
     <link rel="stylesheet" href="./index.css" />
     <!-- all lit components are export from index.ts -->
   </head>
-  <body>
-    <lit-button variant="text-only" class="btn btn-info">Info</lit-button>
-    <lit-button variant="left-icon" class="btn btn-error">Error</lit-button>
-    <lit-button variant="right-icon" class="btn btn-warning">Warning</lit-button>
-    <lit-button variant="icon-only" class="btn btn-success">Success</lit-button>
-    <br>
-    <lit-alert class="alert alert-info" header="title here" content="content here"></lit-alert>
-    <br>
-    <lit-card class="card"></lit-card>
-    <br>
-    <lit-list data='["task 1"]'></lit-list>
+  <body
+    class="theme-light"
+    style="font-family: 'Open Sans', sans-serif; padding: 2rem"
+  >
+    <div
+      style="
+        position: fixed;
+        top: 1rem;
+        right: 1rem;
+        z-index: 1000;
+        display: flex;
+        gap: 0.5rem;
+        align-items: center;
+      "
+    >
+      <label for="theme-select" style="font-size: 0.95em">Theme:</label>
+      <select
+        id="theme-select"
+        onchange="switchTheme(this.value)"
+        style="padding: 0.25em 0.5em; border-radius: 4px"
+      >
+        <option value="theme-light">Light</option>
+        <option value="theme-dark">Dark</option>
+        <option value="theme-brand">Brand</option>
+      </select>
+      <lit-button
+        color="btn-error"
+        variant="text-only"
+        onclick="resetShowcase()"
+        >Reset</lit-button
+      >
+    </div>
+    <h1>Lit Components Showcase</h1>
+    <section>
+      <h2>Banner & Notification</h2>
+      <!-- Notification Trigger Buttons -->
+      <div style="display: flex; gap: 12px; margin-bottom: 1rem">
+        <lit-button
+          color="btn-info"
+          variant="text-only"
+          onclick="showNotification('info')"
+        >
+          Show Info Notification
+        </lit-button>
+        <lit-button
+          color="btn-success"
+          variant="text-only"
+          onclick="showNotification('success')"
+        >
+          Show Success Notification
+        </lit-button>
+        <lit-button
+          color="btn-error"
+          variant="text-only"
+          onclick="showNotification('error')"
+        >
+          Show Error Notification
+        </lit-button>
+        <lit-button
+          color="btn-warning"
+          variant="text-only"
+          onclick="showNotification('warning')"
+        >
+          Show Warning Notification
+        </lit-button>
+        <lit-button
+          color="btn-info-secondary"
+          variant="text-only"
+          onclick="showNotification('internet-lost')"
+        >
+          Show Internet Lost Notification
+        </lit-button>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 16px">
+        <lit-banner
+          variant="page-banner"
+          type="info"
+          size="l"
+          showCloseButton
+          title="A short descriptive header"
+        >
+          This is a paragraph of information with additional supporting detail
+          or links to help the user understand what they should do.
+        </lit-banner>
+        <lit-banner
+          variant="page-banner"
+          type="success"
+          size="l"
+          showCloseButton
+          title="A short descriptive header"
+        >
+          This is a paragraph of information with additional supporting detail
+          or links to help the user understand what they should do.
+        </lit-banner>
+        <lit-banner
+          variant="page-banner"
+          type="error"
+          size="l"
+          showCloseButton
+          title="A short descriptive header"
+        >
+          This is a paragraph of information with additional supporting detail
+          or links to help the user understand what they should do.
+        </lit-banner>
+        <lit-banner
+          variant="page-banner"
+          type="warning"
+          size="l"
+          showCloseButton
+          title="A short descriptive header"
+        >
+          This is a paragraph of information with additional supporting detail
+          or links to help the user understand what they should do.
+        </lit-banner>
+        <lit-banner
+          variant="page-banner"
+          type="internet-lost"
+          size="l"
+          showCloseButton
+          title="A short descriptive header"
+        >
+          This is a paragraph of information with additional supporting detail
+          or links to help the user understand what they should do.
+        </lit-banner>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 16px">
+        <lit-banner
+          id="notif-info"
+          style="display: none"
+          variant="notification"
+          type="info"
+          size="l"
+          showCloseButton
+        >
+          Notification: Info
+        </lit-banner>
+        <lit-banner
+          id="notif-success"
+          style="display: none"
+          variant="notification"
+          type="success"
+          size="l"
+          showCloseButton
+        >
+          Notification: Success
+        </lit-banner>
+        <lit-banner
+          id="notif-error"
+          style="display: none"
+          variant="notification"
+          type="error"
+          size="l"
+          showCloseButton
+        >
+          Notification: Error
+        </lit-banner>
+        <lit-banner
+          id="notif-warning"
+          style="display: none"
+          variant="notification"
+          type="warning"
+          size="l"
+          showCloseButton
+        >
+          Notification: Warning
+        </lit-banner>
+        <lit-banner
+          id="notif-internet-lost"
+          style="display: none"
+          variant="notification"
+          type="internet-lost"
+          size="l"
+          showCloseButton
+        >
+          Notification: Internet Lost
+        </lit-banner>
+      </div>
+    </section>
+    <section>
+      <h2>Button</h2>
+      <div
+        style="display: flex; flex-wrap: wrap; gap: 16px; align-items: center"
+      >
+        <lit-button variant="text-only" color="btn-info">Info</lit-button>
+        <lit-button variant="text-only" color="btn-info-secondary"
+          >Info Secondary</lit-button
+        >
+        <lit-button variant="text-only" color="btn-success">Success</lit-button>
+        <lit-button variant="text-only" color="btn-success-secondary"
+          >Success Secondary</lit-button
+        >
+        <lit-button variant="text-only" color="btn-warning">Warning</lit-button>
+        <lit-button variant="text-only" color="btn-warning-secondary"
+          >Warning Secondary</lit-button
+        >
+        <lit-button variant="text-only" color="btn-error">Error</lit-button>
+        <lit-button variant="text-only" color="btn-error-secondary"
+          >Error Secondary</lit-button
+        >
+        <lit-button
+          variant="right-icon"
+          color="btn-success-secondary"
+          icon="success"
+          >Success</lit-button
+        >
+        <lit-button
+          variant="icon-only"
+          color="btn-warning-secondary"
+          icon="warning"
+        ></lit-button>
+        <lit-button variant="left-icon" color="btn-error-secondary" icon="error"
+          >Icon Left</lit-button
+        >
+        <lit-button
+          variant="text-only"
+          color="btn-info"
+          type="link"
+          href="https://www.google.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Go to Google</lit-button
+        >
+      </div>
+    </section>
+    <section>
+      <h2>Card</h2>
+      <div style="display: flex; flex-wrap: wrap; gap: 16px">
+        <lit-card
+          title="Card Title"
+          subtitle="Card Subtitle"
+          variant="requirement"
+          actionButtonText="Action"
+          actionButtonDisabled="false"
+          secondaryActionButtonText="Action"
+          secondaryActionButtonDisabled="false"
+        >
+          <div>
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry.
+          </div>
+        </lit-card>
+        <lit-card
+          title="Card Title"
+          subtitle="Card Subtitle"
+          tooltip="This is a tooltip for the card title."
+          variant="requirement"
+        >
+          <div>
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry.
+          </div>
+        </lit-card>
+        <lit-card
+          title="Card Title"
+          tooltip="This is a tooltip for the card title."
+          variant="requirement"
+        >
+          <div>
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry.
+          </div>
+        </lit-card>
+        <lit-card title="Card Title" subtitle="Card Subtitle" variant="summary">
+          <div>
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry.
+          </div>
+        </lit-card>
+        <lit-card
+          title="Action Card Title"
+          subtitle="Card Subtitle"
+          variant="action"
+          actionButtonText="Action"
+          actionButtonDisabled="false"
+          secondaryActionButtonText="Action"
+          secondaryActionButtonDisabled="false"
+          onSecondaryAction="alert('Secondary action clicked!')"
+          onContinue="alert('Continue clicked!')"
+        >
+          <div>
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry.
+          </div>
+        </lit-card>
+        <lit-card title="Card Title" variant="requirement"></lit-card>
+        <lit-card
+          title="Card Title"
+          subtitle="Card Subtitle"
+          variant="navigation"
+        >
+          <div>
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry.
+          </div>
+        </lit-card>
+        <lit-card
+          title="Card Title"
+          subtitle="Card Subtitle"
+          variant="navigation"
+        ></lit-card>
+        <lit-card title="Card Title" variant="navigation"></lit-card>
+      </div>
+    </section>
+    <section>
+      <h2>Icon</h2>
+      <div
+        style="display: flex; flex-wrap: wrap; gap: 16px; align-items: center"
+      >
+        <lit-icon class="icon" icon="info" variant="m"></lit-icon>
+        <lit-icon class="icon" icon="error" variant="m"></lit-icon>
+        <lit-icon class="icon" icon="warning" variant="m"></lit-icon>
+        <lit-icon class="icon" icon="success" variant="m"></lit-icon>
+        <lit-icon class="icon" icon="internet-lost" variant="m"></lit-icon>
+        <lit-icon class="icon" icon="info-service" variant="m"></lit-icon>
+        <lit-icon class="icon" icon="close" variant="m"></lit-icon>
+        <lit-icon class="icon" icon="edit" variant="m"></lit-icon>
+        <lit-icon class="icon" icon="info" variant="s"></lit-icon>
+        <lit-icon class="icon" icon="info" variant="l"></lit-icon>
+      </div>
+    </section>
   </body>
-
   <script>
-    let card = document.querySelector("lit-card");
-    card.data = { header: "card header", content: "card content here", }; 
+    let notifTimeout;
+    function showNotification(type) {
+      const ids = [
+        "notif-info",
+        "notif-success",
+        "notif-error",
+        "notif-warning",
+        "notif-internet-lost",
+      ];
+      ids.forEach((id) => {
+        const el = document.getElementById(id);
+        if (el) el.style.display = "none";
+      });
+      const el = document.getElementById("notif-" + type);
+      if (el) el.style.display = "";
+      if (notifTimeout) clearTimeout(notifTimeout);
+      notifTimeout = setTimeout(() => {
+        if (el) el.style.display = "none";
+      }, 3000);
+    }
+
+    function resetShowcase() {
+      location.reload();
+    }
+
+    function switchTheme(theme) {
+      document.body.classList.remove(
+        "theme-light",
+        "theme-dark",
+        "theme-brand"
+      );
+      document.body.classList.add(theme);
+    }
+    // Set initial value based on body class
+    window.addEventListener("DOMContentLoaded", () => {
+      const select = document.getElementById("theme-select");
+      if (select) {
+        if (document.body.classList.contains("theme-dark"))
+          select.value = "theme-dark";
+        else if (document.body.classList.contains("theme-brand"))
+          select.value = "theme-brand";
+        else select.value = "theme-light";
+      }
+    });
   </script>
 </html>
