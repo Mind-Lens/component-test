@@ -96,9 +96,12 @@ jobs:
         run: serve -s storybook-static -l 6006 &
       - name: Wait for Storybook to be ready
         run: npx wait-on http://localhost:6006
+      - name: Install Chromium
+        run: sudo apt-get update && sudo apt-get install -y chromium-browser
       - name: Run pa11y-ci
         run: npx pa11y-ci http://localhost:6006
         env:
+          PUPPETEER_EXECUTABLE_PATH: "/usr/bin/chromium-browser"
           PUPPETEER_ARGS: "--no-sandbox --disable-setuid-sandbox"
 
   performance:
