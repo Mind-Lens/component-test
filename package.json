@@ -20,7 +20,8 @@
     "compile": "tsc",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "lint": "eslint . --ext .ts,.tsx,.js,.jsx",
   },
   "dependencies": {
     "lit": "^3.1.2",
