@@ -1,0 +1,7 @@
+{
+  "defaults": {
+    "timeout": 10000,
+    "screenCapture": false
+  },
+  "urls": ["http://localhost:6006"]
+}

@@ -1,0 +1,109 @@
+.lit-banner {
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+  display: flex;
+  align-items: center;
+  padding: 0.75rem;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: var(--border-radius);
+  max-width: 100%;
+  margin-bottom: 1.5rem;
+
+  &--size-m {
+    width: 320px;
+  }
+  &--size-l {
+    width: 480px;
+  }
+  &--size-xl {
+    width: 640px;
+  }
+  &--size-full {
+    width: 100%;
+  }
+
+  &--variant-page-banner {
+    padding: 1.5rem;
+    align-items: flex-start;
+
+    &.lit-banner--empty-slot {
+      align-items: center;
+    }
+  }
+
+  &--variant-notification {
+    position: fixed;
+    top: 2rem;
+    left: 0;
+    right: 0;
+    margin: auto;
+    border-width: 1px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    z-index: var(--z-index-notification);
+    min-height: 60px;
+  }
+
+  &--type-info {
+    border-color: var(--info-color);
+    background-color: var(--info-background);
+  }
+  &--type-success {
+    border-color: var(--success-color);
+    background-color: var(--success-background);
+  }
+  &--type-error,
+  &--type-internet-lost {
+    border-color: var(--error-color);
+    background-color: var(--error-background);
+  }
+  &--type-warning {
+    border-color: var(--warning-color);
+    background-color: var(--warning-background);
+  }
+
+  @media print {
+    background-color: var(--color-white);
+    border-width: 2px;
+  }
+
+  &__icon {
+    margin-right: 8px;
+  }
+
+  &__content {
+    display: flex;
+    align-items: center;
+    margin-right: auto;
+  }
+
+  &__close {
+    margin-left: 1rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.25rem;
+  }
+
+  &__title {
+    font-family: "Open Sans", sans-serif;
+    margin: 0 0 0.5rem 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+
+  &--empty-slot {
+    .lit-banner__title {
+      margin: 0;
+    }
+  }
+}
+
+.lit-banner--variant-page-banner.lit-banner--empty-slot {
+  align-items: center !important;
+}
+
+.storybook-banner.lit-banner--variant-notification {
+  top: 0 !important;
+}
