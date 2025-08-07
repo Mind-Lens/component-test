@@ -99,4 +99,4 @@ jobs:
       - name: Run pa11y-ci
         run: npx pa11y-ci http://localhost:6006
         env:
-          PUPPETEER_ARGS: "--no-sandbox"
+          PUPPETEER_ARGS: "--no-sandbox --disable-setuid-sandbox"
