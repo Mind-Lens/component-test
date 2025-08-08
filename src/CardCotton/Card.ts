@@ -7,7 +7,7 @@ interface CardData {
   content: string;
 }
 
-@customElement("lit-card")
+@customElement("lit-cards")
 export class LitCard extends LitElement {
   @property({ type: Object })
   data?: CardData;
@@ -18,7 +18,7 @@ export class LitCard extends LitElement {
   render() {
     return html`
       <div class="${this.class} ">
-        <div class="header">${this.data?.header}</div>
+        <div class="header">${this.data?.header}w</div>
         <div class="content">${this.data?.content}</div>
       </div>
     `;
@@ -29,6 +29,6 @@ export class LitCard extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "lit-card": LitCard;
+    "lit-cards": LitCard;
   }
 }

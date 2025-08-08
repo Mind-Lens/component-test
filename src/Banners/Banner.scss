@@ -1,0 +1,81 @@
+@import '../colors.scss';
+
+.banner-container {
+  position: absolute;
+  top: 20px;
+  margin: 0 auto;
+  left: 50%;
+  transform: translateX(-50%); 
+}
+
+.banner {
+  font-size: 16px;
+  color: black;
+  font-family: "Open Sans", sans-serif;
+  padding: 24px;
+  padding-right: 60px;
+  border: 1px solid black;
+  border-radius: 5px;
+  display: flex;
+  align-items: flex-start;
+  position: relative;
+  gap: 12px;
+}
+
+.header {
+  font-weight: 600;
+}
+
+.banner-info {
+  border-color: #2a68da;
+  background-color: #e5eefb;
+}
+
+.banner-error {
+  border-color: #cc3123;
+  background-color: #fef5f5;
+}
+
+.banner-warning {
+  border-color: #ff7300;
+  background-color: #fff0d7;
+}
+
+.banner-success {
+  border-color: #008700;
+  background-color: #f8fff2;
+}
+
+#close-btn {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+#close-btn:hover {
+  color: #a6a6a6;
+}
+
+.short {
+  width: 480px;
+}
+
+.medium {
+  width: 720px;
+}
+
+.long {
+  width: 1120px;
+}
+
+.action {
+  display: flex;
+
+}
+
+.hidden {
+  display: none;
+}

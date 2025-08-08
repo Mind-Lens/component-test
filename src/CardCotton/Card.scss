@@ -1,0 +1,21 @@
+@import '../colors.scss';
+
+.card {
+  font-size: 16px;
+  color: black;
+  font-family: "Open Sans", sans-serif;
+  max-width: 720px;
+  border: 1px solid;
+  background-color: $alert-info-background-color;
+  border-color: $alert-info-color;
+
+}
+
+.header {
+  font-weight: bold;
+  margin: 14px 24px;
+}
+
+.content {
+  margin: 10px 24px;
+}
