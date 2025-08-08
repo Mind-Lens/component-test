@@ -5,8 +5,10 @@
     <link rel="icon" type="image/svg+xml" href="" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Lit Components</title>
-      <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
-    rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- import from src
       <script type="module" src="./src/index.ts"></script>
@@ -14,25 +16,105 @@
 
     <!-- import from vite build output -->
     <script type="module" src="./dist/index.js"></script>
-    
+
     <link rel="stylesheet" href="./index.css" />
     <!-- all lit components are export from index.ts -->
   </head>
   <body>
-    <lit-button variant="text-only" class="btn btn-info">Info</lit-button>
-    <lit-button variant="left-icon" class="btn btn-error">Error</lit-button>
-    <lit-button variant="right-icon" class="btn btn-warning">Warning</lit-button>
-    <lit-button variant="icon-only" class="btn btn-success">Success</lit-button>
-    <br>
-    <lit-alert class="alert alert-info" header="title here" content="content here"></lit-alert>
-    <br>
-    <lit-card class="card"></lit-card>
-    <br>
-    <lit-list data='["task 1"]'></lit-list>
+    <h2>Banner Info Component</h2>
+    <button class="btn-show" onclick="openBanner('info')">Show</button>
+    <lit-banner
+      variant="page-banner"
+      class="banner banner-info"
+      size="short"
+      title="Banner Title"
+      timeout="3000"
+      type="info"
+    >
+      This is a paragraph of information with additional supporting detail or
+      links to help the user understand what they should do.
+    </lit-banner>
+    <h2>Banner Error Component</h2>
+    <button class="btn-show" onclick="openBanner('error')">Show</button>
+    <lit-banner
+      variant="page-banner"
+      class="banner banner-error"
+      size="medium"
+      title="Banner Title"
+      showCloseBtn="false"
+      timeout="3000"
+      type="error"
+    >
+      This is a paragraph of information with additional supporting detail or
+      links to help the user understand what they should do.
+      <div style="display: flex; gap: 10px; margin-top: 10px">
+        <lit-button
+          variant="text-only"
+          class="btn btn-error-secondary"
+          onclick="alert('Cancel clicked')"
+          >Cancel</lit-button
+        >
+        <lit-button
+          variant="text-only"
+          class="btn btn-error"
+          onclick="alert('Accept clicked')"
+          >Accept</lit-button
+        >
+      </div>
+    </lit-banner>
+    <h2>Banner Success Component</h2>
+    <button class="btn-show" onclick="openBanner('success')">Show</button>
+    <lit-banner
+      variant="page-banner"
+      class="banner banner-success"
+      size="long"
+      title="Banner Title"
+      timeout="3000"
+      type="success"
+    >
+      This is a paragraph of information with additional supporting detail or
+      links to help the user understand what they should do.
+    </lit-banner>
+    <h2>Banner Warning Component</h2>
+    <button class="btn-show" onclick="openBanner('warning')">Show</button>
+    <lit-banner
+      variant="page-banner"
+      class="banner banner-warning"
+      size="short"
+      title="Banner Title"
+      timeout="3000"
+      type="warning"
+    >
+      This is a paragraph of information with additional supporting detail or
+      links to help the user understand what they should do.
+      <div style="display: flex; gap: 10px; margin-top: 10px">
+        <lit-button
+          variant="text-only"
+          class="btn btn-warning-secondary"
+          onclick="alert('Cancel clicked')"
+          >Cancel</lit-button
+        >
+        <lit-button
+          variant="text-only"
+          class="btn btn-warning"
+          onclick="alert('Accept clicked')"
+          >Accept</lit-button
+        >
+      </div>
+    </lit-banner>
   </body>
 
   <script>
     let card = document.querySelector("lit-card");
-    card.data = { header: "card header", content: "card content here", }; 
+    card.data = { header: "card header", content: "card content here" };
+
+    function openBanner(type) {
+      const banner = document.querySelector('lit-banner[type="' + type + '"]');
+      if (banner) {
+        banner.show();
+      } else {
+        console.error("Banner not found");
+      }
+    }
   </script>
 </html>

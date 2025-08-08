@@ -4,7 +4,7 @@ import { LitCard } from "./Card.ts";
 
 export const LitReactCard = createComponent({
   react: React,
-  tagName: "lit-card",
+  tagName: "lit-cards",
   elementClass: LitCard,
   events: {},
 });
