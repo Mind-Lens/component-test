@@ -1,0 +1,37 @@
+/* Dark mode iframe background styling */
+.dark #storybook-panel-root {
+  background-color: #1a1a1a;
+}
+
+.dark #storybook-preview-wrapper {
+  background-color: #1a1a1a;
+}
+
+.dark #storybook-preview-iframe {
+  background-color: #1a1a1a;
+}
+
+/* Light mode iframe background styling */
+.light #storybook-panel-root {
+  background-color: #ffffff;
+}
+
+.light #storybook-preview-wrapper {
+  background-color: #ffffff;
+}
+
+.light #storybook-preview-iframe {
+  background-color: #ffffff;
+}
+
+/* Additional styling for better dark mode experience */
+.dark {
+  background-color: #1a1a1a;
+  color: #ffffff;
+}
+
+.dark body {
+  background-color: #1a1a1a;
+}
+
+
