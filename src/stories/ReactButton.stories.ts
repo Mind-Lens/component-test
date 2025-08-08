@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { fn } from '@storybook/test';
 //import { LitReactButton } from 'ml-lit-components'; // use ml-lit-components@0.0.20
 import { LitReactButton } from '../react';
 

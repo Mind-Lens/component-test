@@ -1,0 +1,242 @@
+@import '../colors.scss';
+
+// Theme variables
+:host {
+  --banner-text-color: #0C0D0D;
+  --banner-font-family: "Open Sans", sans-serif;
+  // Map to design tokens from src/colors.scss (matches DxpBanner.vue mapping)
+  --banner-info-color: #{$color-blue-60};
+  --banner-info-background: #{$color-blue-00};
+  --banner-success-color: #{$color-green-80};
+  --banner-success-background: #{$color-green-00};
+  --banner-error-color: #{$color-red-80};
+  --banner-error-background: #{$color-red-00};
+  --banner-warning-color: #{$color-orange-80};
+  --banner-warning-background: #{$color-orange-05};
+  --banner-border-radius: 4px;
+  --banner-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --banner-z-index: 1000;
+  --banner-padding: 12px;
+  --banner-margin: 24px;
+  --banner-border-width: 1px;
+}
+
+
+// Dark theme
+:host([theme="dark"]) {
+  --banner-info-color: #4da6ff;
+  --banner-info-background: transparent;
+  --banner-success-color: #4dff4d;
+  --banner-success-background: transparent;
+  --banner-error-color: #ff4d4d;
+  --banner-error-background: transparent;
+  --banner-warning-color: #ffb366;
+  --banner-warning-background: transparent;
+}
+
+// Brand theme
+:host([theme="brand"]) {
+  --banner-info-color: #{$color-blue-60};
+  --banner-info-background: #{$color-blue-00};
+  --banner-success-color: #{$color-green-80};
+  --banner-success-background: #{$color-green-00};
+  --banner-error-color: #{$color-red-80};
+  --banner-error-background: #{$color-red-00};
+  --banner-warning-color: #{$color-orange-80};
+  --banner-warning-background: #{$color-orange-05};
+}
+
+.banner {
+  font-family: var(--banner-font-family);
+  display: flex;
+  padding: var(--banner-padding);
+  border-width: var(--banner-border-width);
+  border-style: solid;
+  border-radius: var(--banner-border-radius);
+  max-width: 100%;
+  margin-bottom: var(--banner-margin);
+  box-sizing: border-box;
+
+  // Size variants
+  &--size-m {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  &--size-l {
+    width: 100%;
+    max-width: 600px;
+  }
+
+  &--size-xl {
+    width: 100%;
+    max-width: 800px;
+  }
+
+  &--size-full {
+    width: 100%;
+  }
+
+  // Variant styles
+  &--variant-page-banner {
+    padding: 24px;
+    .banner__icon {
+      align-self: flex-start;
+    }
+  }
+
+  &--variant-notification {
+    position: fixed;
+    top: 32px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    border-width: var(--banner-border-width);
+    border-radius: var(--banner-border-radius);
+    box-shadow: var(--banner-box-shadow);
+    z-index: var(--banner-z-index);
+    max-width: 600px;
+  }
+
+  // Type styles
+  &--type-info {
+    border-color: var(--banner-info-color);
+    background-color: var(--banner-info-background);
+  }
+
+  &--type-success {
+    border-color: var(--banner-success-color);
+    background-color: var(--banner-success-background);
+  }
+
+  &--type-error,
+  &--type-internet-lost {
+    border-color: var(--banner-error-color);
+    background-color: var(--banner-error-background);
+  }
+
+  &--type-warning {
+    border-color: var(--banner-warning-color);
+    background-color: var(--banner-warning-background);
+  }
+
+  // Print styles
+  @media print {
+    background-color: white;
+    border-width: 2px;
+  }
+
+  // Responsive design
+  @media (max-width: 768px) {
+    padding: 8px;
+    margin-bottom: 16px;
+
+    &--variant-page-banner {
+      padding: 16px;
+    }
+
+    &--variant-notification {
+      top: 16px;
+      margin: 0 16px;
+    }
+  }
+}
+
+.banner__icon {
+  margin-right: 8px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+
+  svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .banner--type-info & {
+    color: var(--banner-info-color);
+  }
+
+  .banner--type-success & {
+    color: var(--banner-success-color);
+  }
+
+  .banner--type-error &,
+  .banner--type-internet-lost & {
+    color: var(--banner-error-color);
+  }
+
+  .banner--type-warning & {
+    color: var(--banner-warning-color);
+  }
+}
+
+.banner__content {
+  display: flex;
+  align-items: center;
+  margin-right: auto;
+  flex: 1;
+  min-width: 0;
+
+  .contain {
+    width: 100%;
+  }
+}
+
+.banner__title {
+  margin: 0 0 8px 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: inherit;
+}
+
+.banner__close-button {
+  margin-left: 16px;
+  align-self: flex-start;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: inherit;
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+
+  &:focus {
+    outline: 2px solid currentColor;
+    outline-offset: 2px;
+  }
+
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+// Accessibility improvements
+.banner:focus-within {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+// High contrast mode support
+@media (prefers-contrast: high) {
+  .banner {
+    border-width: 2px;
+  }
+}
+
+// Reduced motion support
+@media (prefers-reduced-motion: reduce) {
+  .banner__close-button {
+    transition: none;
+  }
+}
+
